@@ -28,7 +28,7 @@ public class PlayerAction : MonoBehaviour
         h = manager.isAction ? 0 : Input.GetAxisRaw("Horizontal");
         v = manager.isAction ? 0 : Input.GetAxisRaw("Vertical");
         //Debug.Log("Horizontal: " + h + ", Vertical: " + v);
-        Debug.Log("Vertical Input: " + v);
+        //Debug.Log("Vertical Input: " + v);
 
         //Check Button Down & Up
         bool hDown = manager.isAction ? false : Input.GetButtonDown("Horizontal");
@@ -72,8 +72,7 @@ public class PlayerAction : MonoBehaviour
         //Move
         Vector2 moveVec = isHorizonMove ? new Vector2(h, 0) : new Vector2(0, v);
         rigid.linearVelocity = moveVec * Speed;
-        Debug.Log("Velocity: " + rigid.linearVelocity);
-
+        
         //Ray
         Debug.DrawRay(rigid.position, dirVec * 0.7f,new Color(0,1,0));
         RaycastHit2D rayhit = Physics2D.Raycast(rigid.position, dirVec, 0.7f,LayerMask.GetMask("object"));
